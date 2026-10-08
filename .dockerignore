@@ -1,0 +1,7 @@
+.env
+.venv
+.git
+__pycache__
+*.db
+1.py
+gen_vapid.py

@@ -1,0 +1,20 @@
+services:
+  notifier:
+    build: .
+    container_name: notifier
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NOTIFIER_DB: /data/notifier.db
+    volumes:
+      - notifier-data:/data
+    ports:
+      - "127.0.0.1:8020:8020"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8020/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  notifier-data:
