@@ -8,5 +8,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY config.py store.py rules.py deliver.py main.py ./
 
-EXPOSE 8020
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8020"]
+EXPOSE 8030
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8030"]
